@@ -15,7 +15,7 @@ type ProductByHandleData = {
 }
 
 export function isShopifyCatalogEnabled(): boolean {
-  return import.meta.env.DEV
+  return import.meta.env.VITE_ENABLE_MOCK_CATALOG !== 'true'
 }
 
 export async function shopifyListProducts(_input?: ListProductsInput): Promise<Product[]> {
