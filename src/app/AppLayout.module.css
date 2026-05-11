@@ -1,0 +1,132 @@
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow-x: hidden;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: var(--background);
+  border-bottom: var(--border-strong);
+}
+
+.headerInner,
+.footerInner,
+.main {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.headerInner {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--on-background);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navLink {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--on-surface);
+  padding: 8px 16px;
+}
+
+.navLink:hover {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.active {
+  color: var(--on-primary-container);
+  background: var(--primary-container);
+}
+
+.main {
+  padding: 80px 0 0;
+  /* overflow-x clips full-bleed sections (e.g. homepage ticker); handle overflow elsewhere */
+}
+
+.footer {
+  border-top: var(--border-strong);
+  padding: 80px 0;
+  background: var(--surface-container-highest);
+  color: var(--on-surface-variant);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.iconButton {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--on-surface);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.cartLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  border: 2px solid var(--background);
+  pointer-events: none;
+}
+
+.iconButton:hover {
+  color: var(--primary-container);
+}
+
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+}
