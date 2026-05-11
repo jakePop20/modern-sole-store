@@ -142,7 +142,7 @@
   margin: 0;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-weight: 700;
-  font-size: 48px;
+  font-size: clamp(36px, 7vw, 48px);
   line-height: 1;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -544,4 +544,45 @@
   background: var(--error-container);
   color: var(--on-error-container);
   margin-bottom: 16px;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    min-height: auto;
+  }
+
+  .panel {
+    position: static;
+    top: auto;
+    padding: 24px 16px 40px;
+    gap: 20px;
+  }
+
+  .galleryBadge {
+    top: 16px;
+    left: 16px;
+    font-size: 12px;
+  }
+
+  .desc {
+    font-size: 16px;
+  }
+
+  .addBtn {
+    min-height: 56px;
+    padding: 16px 20px;
+    font-size: 20px;
+  }
+
+  .blueprint {
+    padding: 24px 16px 40px;
+  }
+
+  .feed {
+    padding: 24px 16px 48px;
+  }
+
+  .reviewBody {
+    font-size: 16px;
+  }
 }

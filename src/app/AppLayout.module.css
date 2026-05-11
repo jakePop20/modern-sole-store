@@ -17,8 +17,11 @@
 .headerInner,
 .footerInner,
 .main {
-  width: min(1440px, calc(100% - 32px));
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
+  padding-inline: 25px;
+  min-width: 0;
 }
 
 .headerInner {
@@ -126,7 +129,39 @@
 }
 
 @media (max-width: 760px) {
+  .headerInner {
+    height: auto;
+    padding-block: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
   .nav {
-    display: none;
+    width: 100%;
+    order: 3;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  .navLink {
+    flex: 1;
+    text-align: center;
+    padding: 10px 12px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .iconButton {
+    padding: 10px;
+  }
+
+  .main {
+    padding-top: 136px;
   }
 }

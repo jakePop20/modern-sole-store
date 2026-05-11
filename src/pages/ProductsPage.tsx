@@ -91,6 +91,7 @@ export function ProductsPage() {
   const [selectedSizeFilter, setSelectedSizeFilter] = useState<string | null>(null)
   const [selectedColors, setSelectedColors] = useState<string[]>([])
   const [page, setPage] = useState(1)
+  const [filtersOpen, setFiltersOpen] = useState(false)
 
   const filterPayload = useMemo(
     () => ({
@@ -172,6 +173,8 @@ export function ProductsPage() {
   }, [])
 
   const count = products?.length ?? 0
+  const activeFilterCount =
+    selectedStyles.length + selectedColors.length + (selectedSizeFilter ? 1 : 0)
 
   return (
     <div className={styles.wrap}>
@@ -185,8 +188,24 @@ export function ProductsPage() {
 
       {errorMessage ? <div className={styles.alert}>{errorMessage}</div> : null}
 
+      <button
+        type="button"
+        className={styles.filterToggle}
+        onClick={() => setFiltersOpen((prev) => !prev)}
+        aria-expanded={filtersOpen}
+        aria-controls="products-filters"
+      >
+        {filtersOpen
+          ? 'Hide Filters'
+          : `Filters${activeFilterCount > 0 ? ` (${activeFilterCount})` : ''}`}
+      </button>
+
       <div className={styles.layout}>
-        <aside className={styles.sidebar} aria-label="Product filters">
+        <aside
+          id="products-filters"
+          className={`${styles.sidebar} ${filtersOpen ? styles.sidebarOpen : ''}`}
+          aria-label="Product filters"
+        >
           <div className={styles.sticky}>
             <div className={styles.filterHead}>
               <h3>Filters</h3>

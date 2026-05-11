@@ -169,7 +169,7 @@ export function HomePage() {
         )}
       </section>
 
-      <section className={`${home.ticker} ${home.tickerBleed}`} aria-label="Brand ticker">
+      <section className={home.ticker} aria-label="Brand ticker">
         <div className={home.tickerMarquee}>
           <div className={home.tickerScroll}>
             <div className={home.tickerRow}>
@@ -230,9 +230,7 @@ export function HomePage() {
               </div>
               <div className={`${home.bar} ${largeBarClass(p0.listingTone)}`}>
                 <span className={home.barLabel}>{p0.title}</span>
-                <span className={home.price}>
-                  {formatMoney(Math.round(p0.price.amount), p0.price.currency)}
-                </span>
+                <span>{formatMoney(Math.round(p0.price.amount), p0.price.currency)}</span>
               </div>
             </Link>
 
